@@ -18,9 +18,11 @@
 
 /* Colors */
 :root {
-  --color-default: #222222;
-  --color-primary: #008374;
-  --color-secondary: #f85a40;
+  --color-default: #231942;
+  --color-primary: #5E548E;
+  --color-secondary: #9F86C0;
+  --color-fourth: #BE95C4;
+  --color-fifth: #E0B1CB;
 }
 
 /* Smooth scroll behavior */
@@ -53,6 +55,23 @@ h4,
 h5,
 h6 {
   font-family: var(--font-primary);
+}
+
+.home-img-container {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.home-img {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }
 
 /*--------------------------------------------------------------
@@ -248,7 +267,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #00796b;
+  background: var(--color-fourth);
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -343,6 +362,20 @@ section {
 # Desktop Navigation
 --------------------------------------------------------------*/
 @media (min-width: 1280px) {
+  .custom-navbar-nav {
+    --bs-nav-link-padding-x: 0;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: var(--bs-navbar-color);
+    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
   .navbar {
     padding: 0;
   }
@@ -438,7 +471,7 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 600;
-    color: #006a5d;
+    color: var(--color-secondary);
   }
 
   .navbar .dropdown ul a i {
@@ -493,6 +526,15 @@ section {
 # Mobile Navigation
 --------------------------------------------------------------*/
 @media (max-width: 1279px) {
+  .custom-navbar-nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+  }
+
   .navbar {
     position: fixed;
     top: 0;
@@ -509,7 +551,7 @@ section {
     inset: 0;
     padding: 50px 0 10px 0;
     margin: 0;
-    background: rgba(0, 131, 116, 0.9);
+    background: var(--color-secondary);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -555,7 +597,7 @@ section {
   .navbar .getstarted:hover,
   .navbar .getstarted:focus:hover {
     color: #fff;
-    background: rgba(0, 131, 116, 0.8);
+    background: var(--color-secondary);
   }
 
   .navbar .dropdown ul,
@@ -565,8 +607,8 @@ section {
     padding: 10px 0;
     margin: 10px 20px;
     transition: all 0.5s ease-in-out;
-    background-color: #007466;
-    border: 1px solid #006459;
+    background-color: var(--color-fourth);
+    border: 1px solid var(--color-default);
   }
 
   .navbar .dropdown>.dropdown-active,
@@ -608,7 +650,7 @@ section {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 106, 93, 0.8);
+    background: var(--color-fourth);
     z-index: 9996;
   }
 }
@@ -670,7 +712,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
+  background: radial-gradient(var(--color-primary) 50%, var(--color-fifth) 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -696,7 +738,7 @@ section {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(0, 131, 116, 0.7);
+  border: 5px solid var(--color-fifth);
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
@@ -864,7 +906,7 @@ section {
   width: 94px;
   height: 94px;
   margin-bottom: 20px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
+  background: radial-gradient(var(--color-primary) 50%, var(--color-fifth));
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -1084,7 +1126,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #009d8b;
+  color: var(--color-fourth);
   font-size: 26px;
   line-height: 0;
 }
@@ -1400,6 +1442,7 @@ section {
 # Our Team Section
 --------------------------------------------------------------*/
 .team .member {
+  width: 100%;
   text-align: center;
   background: #fff;
   border-radius: 10px;
@@ -1468,6 +1511,15 @@ section {
   margin: 0 2px;
 }
 
+.team-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
 /*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
@@ -1514,7 +1566,7 @@ section {
   height: 86px;
   width: 86px;
   border-radius: 50%;
-  background: #87c1bb;
+  background: var(--color-fourth);
   transition: all 0.3s ease-out 0s;
   transform: translateZ(-1px);
 }
@@ -1525,7 +1577,7 @@ section {
   height: 102px;
   width: 102px;
   border-radius: 50%;
-  background: #d2eeeb;
+  background: var(--color-fifth);
   transition: all 0.3s ease-out 0s;
   transform: translateZ(-2px);
 }
@@ -1564,7 +1616,7 @@ section {
 }
 
 .pricing ul i {
-  color: #059652;
+  color: var(--color-fourth);
   font-size: 24px;
   padding-right: 3px;
 }
@@ -1687,6 +1739,14 @@ section {
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/
+.blog-row-posts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .recent-posts article {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -1754,7 +1814,7 @@ section {
 
 .contact .info-item {
   width: 100%;
-  background-color: #009282;
+  background-color: var(--color-secondary);
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px;
@@ -1919,7 +1979,7 @@ section {
   padding: 60px 0 0 0;
 }
 
-@media (min-width: 1365px) {
+@media only screen and (min-width: 1365px) {
   .hero {
     background-attachment: fixed;
   }
@@ -1977,7 +2037,17 @@ section {
   color: #fff;
 }
 
-@media (max-width: 640px) {
+.home-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
   .hero h2 {
     font-size: 36px;
   }
@@ -1992,7 +2062,7 @@ section {
   padding-bottom: 60px;
 }
 
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .hero .icon-boxes:before {
     content: "";
     position: absolute;
@@ -2008,7 +2078,7 @@ section {
   padding: 60px 30px;
   position: relative;
   overflow: hidden;
-  background: #008d7d;
+  background: var(--color-fourth);
   box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -2022,6 +2092,7 @@ section {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
+  color: #fff
 }
 
 .hero .icon-box .title a {
@@ -2040,7 +2111,7 @@ section {
 }
 
 .hero .icon-box:hover {
-  background: #009786;
+  background: var(--color-default);
 }
 
 .hero .icon-box:hover .title a,
@@ -2145,7 +2216,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Blog Details
+# Wine Blog
 --------------------------------------------------------------*/
 .blog .blog-details {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
